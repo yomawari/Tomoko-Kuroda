@@ -8,10 +8,12 @@ public class PlayerMover : MonoBehaviour
     
     private Rigidbody2D rb;
     private Vector2 moveVelocity;
+    private Animator anim;
 
     private void Start() 
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     void FixedUpdate()
@@ -19,18 +21,22 @@ public class PlayerMover : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             transform.position += Vector3.left * speed * Time.deltaTime;
+            anim.Play("Tomoko_a_walk");
         }
         else if (Input.GetKey(KeyCode.D))
         {
             transform.position += Vector3.right * speed * Time.deltaTime;
+            anim.Play("Tomoko_d_walk");
         }
         else if (Input.GetKey(KeyCode.W))
         {
             transform.position += Vector3.up * speed * Time.deltaTime;
+            anim.Play("Tomoko_w_walk");
         }
         else if (Input.GetKey(KeyCode.S))
         {
             transform.position += Vector3.down * speed * Time.deltaTime;
+            anim.Play("Tomoko_s_walk");
         }
     }
 }
