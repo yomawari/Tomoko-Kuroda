@@ -4,55 +4,56 @@ using UnityEngine;
 
 public class PlayerMover : MonoBehaviour
 {
-    public float speed;
-    
-    private Rigidbody2D rb;
-    private Vector2 moveVelocity;
+    public float movementSpeed = 5f;
+    private Rigidbody2D rbody;
     private Animator anim;
+    string currentState;
+    const string TOMOKO_sWALK = "Tomoko_sWalk";
+    const string TOMOKO_wWALK = "Tomoko_wWalk";
+    const string TOMOKO_aWALK = "Tomoko_aWalk";
+    const string TOMOKO_dWALK = "Tomoko_dWalk";
 
-    public AudioClip[] footsteps;
-    [SerializeField] private AudioSource moveSound;
-
-    private void Start() 
+    private void Awake() 
     {
-        rb = GetComponent<Rigidbody2D>();
+        rbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        moveSound = GetComponent<AudioSource>();
     }
 
-    void FixedUpdate()
+    private void FixedUpdate() 
     {
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position += Vector3.left * speed * Time.deltaTime;
-            anim.Play("Tomoko_a_walk");
-           Footstep();
+        Vector2 currentPos = rbody.position;
+        float horisontalInput = Input.GetAxis("Horizontal");
+        float verticallInput = Input.GetAxis("Vertical");
+        Vector2 inputVector = new Vector2(horisontalInput,verticallInput);
+        inputVector = Vector2.ClampMagnitude(inputVector,1);
+        Vector2 movement = inputVector * movementSpeed;
+        Vector2 newPos = currentPos + movement * Time.fixedDeltaTime;
+        rbody.MovePosition(newPos);
 
-        }
-        else if (Input.GetKey(KeyCode.D))
+        if(horisontalInput > 0)
         {
-            transform.position += Vector3.right * speed * Time.deltaTime;
-            anim.Play("Tomoko_d_walk");
-            Footstep();
+            ChangeAnimationState(TOMOKO_dWALK);
         }
-        else if (Input.GetKey(KeyCode.W))
+        if(horisontalInput < 0)
         {
-            transform.position += Vector3.up * speed * Time.deltaTime;
-            anim.Play("Tomoko_w_walk");
-           Footstep();
+            ChangeAnimationState(TOMOKO_aWALK);
         }
-        else if (Input.GetKey(KeyCode.S))
+        if(verticallInput > 0)
         {
-            transform.position += Vector3.down * speed * Time.deltaTime;
-            anim.Play("Tomoko_s_walk");
-            Footstep();
+            ChangeAnimationState(TOMOKO_wWALK);
+        }
+        if(verticallInput < 0)
+        {
+            ChangeAnimationState(TOMOKO_sWALK);
         }
     }
 
-    void Footstep()
+    private void ChangeAnimationState(string newState) 
     {
-        int randInt = Random.Range(0, footsteps.Length);
+         if(currentState == newState) return;
 
-        moveSound.PlayOneShot(footsteps[randInt]);
+         anim.Play(newState);
+
+         currentState = newState;
     }
 }

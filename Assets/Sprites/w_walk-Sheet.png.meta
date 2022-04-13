@@ -14,9 +14,6 @@ TextureImporter:
   - first:
       213: 248329427281907025
     second: w_walk-Sheet_3
-  - first:
-      213: 2076249844981913114
-    second: w_walk-Sheet_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -83,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,7 +92,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,8 +106,8 @@ TextureImporter:
       name: w_walk-Sheet_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 2
+        x: 9
+        y: 4
         width: 20
         height: 29
       alignment: 0
@@ -130,8 +127,8 @@ TextureImporter:
       name: w_walk-Sheet_1
       rect:
         serializedVersion: 2
-        x: 30
-        y: 2
+        x: 45
+        y: 4
         width: 20
         height: 30
       alignment: 0
@@ -151,8 +148,8 @@ TextureImporter:
       name: w_walk-Sheet_2
       rect:
         serializedVersion: 2
-        x: 57
-        y: 2
+        x: 81
+        y: 4
         width: 20
         height: 29
       alignment: 0
@@ -172,8 +169,8 @@ TextureImporter:
       name: w_walk-Sheet_3
       rect:
         serializedVersion: 2
-        x: 84
-        y: 2
+        x: 117
+        y: 4
         width: 20
         height: 30
       alignment: 0
@@ -185,27 +182,6 @@ TextureImporter:
       bones: []
       spriteID: 15d0a646c4e327300800000000000000
       internalID: 248329427281907025
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: w_walk-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 111
-        y: 2
-        width: 20
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a165b1bcb3250dc10800000000000000
-      internalID: 2076249844981913114
       vertices: []
       indices: 
       edges: []

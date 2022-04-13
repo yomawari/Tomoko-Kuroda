@@ -14,9 +14,6 @@ TextureImporter:
   - first:
       213: -5681932483631666163
     second: s_walk-Sheet_3
-  - first:
-      213: 4390101487691227397
-    second: s_walk-Sheet_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -83,7 +80,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -95,7 +92,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -109,8 +106,8 @@ TextureImporter:
       name: s_walk-Sheet_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
+        x: 7
+        y: 6
         width: 20
         height: 29
       alignment: 0
@@ -130,10 +127,10 @@ TextureImporter:
       name: s_walk-Sheet_1
       rect:
         serializedVersion: 2
-        x: 23
-        y: 1
+        x: 38
+        y: 5
         width: 20
-        height: 30
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,8 +148,8 @@ TextureImporter:
       name: s_walk-Sheet_2
       rect:
         serializedVersion: 2
-        x: 45
-        y: 1
+        x: 69
+        y: 6
         width: 20
         height: 29
       alignment: 0
@@ -172,10 +169,10 @@ TextureImporter:
       name: s_walk-Sheet_3
       rect:
         serializedVersion: 2
-        x: 67
-        y: 1
+        x: 100
+        y: 5
         width: 20
-        height: 30
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -185,27 +182,6 @@ TextureImporter:
       bones: []
       spriteID: d0ca163a288b521b0800000000000000
       internalID: -5681932483631666163
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: s_walk-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 88
-        y: 1
-        width: 20
-        height: 29
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 501efb51b06ccec30800000000000000
-      internalID: 4390101487691227397
       vertices: []
       indices: 
       edges: []
