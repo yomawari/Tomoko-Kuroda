@@ -5,55 +5,28 @@ using UnityEngine;
 public class PlayerMover : MonoBehaviour
 {
     public float movementSpeed = 5f;
-    private Rigidbody2D rbody;
-    private Animator anim;
-    string currentState;
-    const string TOMOKO_sWALK = "Tomoko_sWalk";
-    const string TOMOKO_wWALK = "Tomoko_wWalk";
-    const string TOMOKO_aWALK = "Tomoko_aWalk";
-    const string TOMOKO_dWALK = "Tomoko_dWalk";
+    public Rigidbody2D rbody;
+    Vector2 movement;
+    public Animator animator;
 
-    private void Awake() 
+    void Update() 
     {
-        rbody = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        movement.x = Input.GetAxis("Horizontal");
+        movement.y = Input.GetAxis("Vertical");
+
+        animator.SetFloat("Horizontal",movement.x);
+        animator.SetFloat("Vertical",movement.y);
+        animator.SetFloat("Speed",movement.sqrMagnitude);
+
+        if(Input.GetAxisRaw("Horizontal") == 1 || Input.GetAxisRaw("Horizontal") == -1 || Input.GetAxisRaw("Vertical") == 1 || Input.GetAxisRaw("Vertical") == -1)
+        {
+            animator.SetFloat("LastHorizontal", Input.GetAxisRaw("Horizontal"));
+            animator.SetFloat("LastVertical", Input.GetAxisRaw("Vertical"));
+        }
     }
 
     private void FixedUpdate() 
     {
-        Vector2 currentPos = rbody.position;
-        float horisontalInput = Input.GetAxis("Horizontal");
-        float verticallInput = Input.GetAxis("Vertical");
-        Vector2 inputVector = new Vector2(horisontalInput,verticallInput);
-        inputVector = Vector2.ClampMagnitude(inputVector,1);
-        Vector2 movement = inputVector * movementSpeed;
-        Vector2 newPos = currentPos + movement * Time.fixedDeltaTime;
-        rbody.MovePosition(newPos);
-
-        if(horisontalInput > 0)
-        {
-            ChangeAnimationState(TOMOKO_dWALK);
-        }
-        if(horisontalInput < 0)
-        {
-            ChangeAnimationState(TOMOKO_aWALK);
-        }
-        if(verticallInput > 0)
-        {
-            ChangeAnimationState(TOMOKO_wWALK);
-        }
-        if(verticallInput < 0)
-        {
-            ChangeAnimationState(TOMOKO_sWALK);
-        }
-    }
-
-    private void ChangeAnimationState(string newState) 
-    {
-         if(currentState == newState) return;
-
-         anim.Play(newState);
-
-         currentState = newState;
+        rbody.MovePosition(rbody.position + movement * movementSpeed * Time.deltaTime);
     }
 }
