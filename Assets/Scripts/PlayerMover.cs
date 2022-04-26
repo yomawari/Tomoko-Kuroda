@@ -8,6 +8,7 @@ public class PlayerMover : MonoBehaviour
     public Rigidbody2D rbody;
     Vector2 movement;
     public Animator animator;
+    public AudioSource audioSource;
 
     void Update() 
     {
@@ -28,5 +29,10 @@ public class PlayerMover : MonoBehaviour
     private void FixedUpdate() 
     {
         rbody.MovePosition(rbody.position + movement * movementSpeed * Time.deltaTime);
+    }
+    
+    public void FootStep()
+    {
+        audioSource.Play();
     }
 }
